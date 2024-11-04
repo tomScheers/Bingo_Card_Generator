@@ -1,3 +1,4 @@
+// main.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,7 +48,8 @@ int main(int argc, char *argv[]) {
   }
 
   // Error handling
-  if (max - min < width * height) {
+  int hasEnoughSpace = max - min < width * height;
+  if (hasEnoughSpace) {
     fprintf(stderr,
             "Error: Range must be larger than the total number of squares.\n");
     return EXIT_FAILURE;
